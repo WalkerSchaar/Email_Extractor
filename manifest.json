@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "Email Address Collector",
+  "version": "1.0",
+  "description": "Collects email addresses from the current web page",
+  
+  "permissions": [
+    "activeTab"
+  ],
+  
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Collect Email Addresses",
+    "default_popup": "popup.html"
+  },
+  
+  "icons": {
+    "48": "icon.png"
+  }
+}
