@@ -33,16 +33,11 @@ document.getElementById('collect-btn').addEventListener('click', async () => {
     });
     
     const emails = results[0];
-    
-    if (emails.length === 0) {
-      statusDiv.textContent = 'No email addresses found on this page.';
-      statusDiv.className = 'info';
-      statusDiv.style.display = 'block';
-    } else {
-      resultsDiv.innerHTML = `<strong>Found ${emails.length} email(s):</strong><br>` +
-        emails.map(email => `<div class="email-item">${email}</div>`).join('');
+
+    if (emails.length > 0) {
+      resultsDiv.innerHTML = emails.map(email => `<div class="email-item">${email}</div>`).join('');
       resultsDiv.style.display = 'block';
-      copyBtn.style.display = 'block';
+      copyBtn.style.display = 'block';   
       
       // Store emails for copying
       copyBtn.dataset.emails = emails.join('\n');
@@ -54,7 +49,7 @@ document.getElementById('collect-btn').addEventListener('click', async () => {
   }
   
   button.disabled = false;
-  button.textContent = 'Collect Emails from Page';
+  button.textContent = 'Extract Emails';
 });
 
 document.getElementById('copy-btn').addEventListener('click', () => {
